@@ -5,7 +5,7 @@ from colorama import init, Fore, Style
 init(autoreset=True)
 
 #utilizamos la primary key que nos brinda openai en su pagina de api
-openai.api_key = "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"
+openai.api_key = "..."
 
 #le indicamos a el chatgpt de que manera comportarse con lo smensajes que reciba,sindo lo maspresiso posible
 system_rol = '''hace de cuenta que sos un analizador de sentimientos.
@@ -34,7 +34,7 @@ class AnalizadorDeSentimientos:
     def __init__(self,rangos):
         self.rangos = rangos
         
-    
+    #se encargad e definir los rangos de polaridad y define el mas bajo como "muy negativo"
     def analizar_sentimiento(self, polaridad):
         for rangos, sentimiento in self.rangos:
             if rangos[0] < polaridad <= rangos[1]:
@@ -52,7 +52,7 @@ rangos = [
     
 ]
         
-         
+#definimos la variable para llamar a la clase
 analizador = AnalizadorDeSentimientos(rangos)
 
 #creamos un bucle para que responda constantemente y permita volver a escribirle
